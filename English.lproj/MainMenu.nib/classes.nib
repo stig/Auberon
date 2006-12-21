@@ -1,0 +1,24 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {changeAi = id; changeLevel = id; newGame = id; undo = id; }; 
+            CLASS = ABController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                aiButton = NSButton; 
+                board = BoardView; 
+                level = NSTextField; 
+                levelStepper = NSStepper; 
+                turn = NSTextField; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = BoardView; LANGUAGE = ObjC; SUPERCLASS = NSMatrix; }, 
+        {CLASS = Connect4; LANGUAGE = ObjC; SUPERCLASS = ABController; }, 
+        {CLASS = Connect4Board; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {CLASS = Connect4Move; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = Connect4State; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}
