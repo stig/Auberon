@@ -10,15 +10,14 @@
 		5350254A0B3AEB780012DAE7 /* ABController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535025450B3AEB780012DAE7 /* ABController.m */; };
 		5350254B0B3AEB780012DAE7 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535025470B3AEB780012DAE7 /* BoardView.m */; };
 		5350254C0B3AEB780012DAE7 /* Connect4.m in Sources */ = {isa = PBXBuildFile; fileRef = 535025490B3AEB780012DAE7 /* Connect4.m */; };
-		5350254E0B3AEB870012DAE7 /* SBAlphaBeta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5350254D0B3AEB870012DAE7 /* SBAlphaBeta.framework */; };
 		5350256F0B3AEC820012DAE7 /* Connect4Move.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256C0B3AEC820012DAE7 /* Connect4Move.m */; };
 		535025700B3AEC820012DAE7 /* Connect4State.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256E0B3AEC820012DAE7 /* Connect4State.m */; };
 		5350259E0B3AEE150012DAE7 /* classic.png in Resources */ = {isa = PBXBuildFile; fileRef = 5350259D0B3AEE150012DAE7 /* classic.png */; };
 		535025DF0B3AF0790012DAE7 /* Connect4StateUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 535025DE0B3AF0790012DAE7 /* Connect4StateUnit.m */; };
-		535025E00B3AF0950012DAE7 /* SBAlphaBeta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5350254D0B3AEB870012DAE7 /* SBAlphaBeta.framework */; };
 		535025E10B3AF09A0012DAE7 /* Connect4State.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256E0B3AEC820012DAE7 /* Connect4State.m */; };
 		535025E20B3AF09B0012DAE7 /* Connect4Move.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256C0B3AEC820012DAE7 /* Connect4Move.m */; };
-		535026040B3AFC130012DAE7 /* SBAlphaBeta.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5350254D0B3AEB870012DAE7 /* SBAlphaBeta.framework */; };
+		53E67CD80B3C45B9004C8851 /* SBAlphaBeta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E67CD70B3C45B9004C8851 /* SBAlphaBeta.framework */; };
+		53E67CE00B3C45CE004C8851 /* SBAlphaBeta.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53E67CD70B3C45B9004C8851 /* SBAlphaBeta.framework */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -42,7 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				535026040B3AFC130012DAE7 /* SBAlphaBeta.framework in CopyFiles */,
+				53E67CE00B3C45CE004C8851 /* SBAlphaBeta.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +62,6 @@
 		535025470B3AEB780012DAE7 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
 		535025480B3AEB780012DAE7 /* Connect4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect4.h; sourceTree = "<group>"; };
 		535025490B3AEB780012DAE7 /* Connect4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connect4.m; sourceTree = "<group>"; };
-		5350254D0B3AEB870012DAE7 /* SBAlphaBeta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SBAlphaBeta.framework; path = ../../../../Library/Frameworks/SBAlphaBeta.framework; sourceTree = SOURCE_ROOT; };
 		5350256B0B3AEC820012DAE7 /* Connect4Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect4Move.h; sourceTree = "<group>"; };
 		5350256C0B3AEC820012DAE7 /* Connect4Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connect4Move.m; sourceTree = "<group>"; };
 		5350256D0B3AEC820012DAE7 /* Connect4State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect4State.h; sourceTree = "<group>"; };
@@ -73,6 +71,7 @@
 		535025CB0B3AF0420012DAE7 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		535025DD0B3AF0790012DAE7 /* Connect4StateUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect4StateUnit.h; sourceTree = "<group>"; };
 		535025DE0B3AF0790012DAE7 /* Connect4StateUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connect4StateUnit.m; sourceTree = "<group>"; };
+		53E67CD70B3C45B9004C8851 /* SBAlphaBeta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SBAlphaBeta.framework; path = ../Library/Frameworks/SBAlphaBeta.framework; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Auberon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auberon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -82,7 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				535025E00B3AF0950012DAE7 /* SBAlphaBeta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				5350254E0B3AEB870012DAE7 /* SBAlphaBeta.framework in Frameworks */,
+				53E67CD80B3C45B9004C8851 /* SBAlphaBeta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +116,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5350254D0B3AEB870012DAE7 /* SBAlphaBeta.framework */,
+				53E67CD70B3C45B9004C8851 /* SBAlphaBeta.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -403,8 +401,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../../Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/../Library/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -427,8 +427,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../../Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/../Library/Frameworks\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
