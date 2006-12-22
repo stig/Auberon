@@ -20,6 +20,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 #import "Connect4StateUnit.h"
+#import "Connect4NNEvaluator.h"
 
 
 @implementation Connect4StateUnit
@@ -120,6 +121,34 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     STAssertEquals([a count], (unsigned)0, nil);
 }
 
+- (void)testWeirdSearchCase
+{
+    NSArray *b = [NSArray arrayWithObjects:
+        [@"1,1,0,0,0,0,0" componentsSeparatedByString:@","],
+        [@"1,1,0,0,0,0,0" componentsSeparatedByString:@","],
+        [@"2,1,1,0,0,0,0" componentsSeparatedByString:@","],
+        [@"1,2,2,2,0,0,0" componentsSeparatedByString:@","],
+        [@"1,2,2,2,0,0,0" componentsSeparatedByString:@","],
+        [@"1,2,2,1,2,0,0" componentsSeparatedByString:@","],
+        nil];
+        
+    unsigned **board = [s board];
+    int i, j;
+    for (i = 0; i < 6; i++)
+        for (j = 0; j < 7; j++)
+            board[i][j] = [[[b objectAtIndex:i] objectAtIndex:j] intValue];
+    
+    id g = [[AlphaBeta alloc] initWithState:s];
+    STAssertEquals([g player], (int)1, @"player 1 to go");
+    STAssertEquals([g winner], (int)0, @"no winner yet");
+    STAssertEquals([[g movesAvailable] count], (unsigned)5, @"expected 5 moves");
+
+    STAssertNotNil([g fixedDepthSearchWithPly:3], nil);
+    STAssertEquals([g player], (int)2, @"player 1 to go");
+    STAssertEquals([g winner], (int)0, @"no winner yet");
+    STAssertEquals([[g movesAvailable] count], (unsigned)5, @"expected 5 moves");
+}
+
 - (void)testWinner
 {
     [self testAvailableMoves];
@@ -145,5 +174,36 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     STAssertEqualsWithAccuracy([[s applyMove:[Connect4Move moveWithCol:6]] currentFitness], (float)59049.0, 0.0001, nil);
     STAssertEqualsWithAccuracy([[s applyMove:[Connect4Move moveWithCol:2]] currentFitness], (float)-1048578.0, 0.0001, nil);
 }
+
+- (void)todoTestNNEvaluator
+{
+    id player[2] = {
+        [[NSKeyedUnarchiver unarchiveObjectWithFile:@"c4evaluator.nn"] retain],
+        [Connect4Evaluator new],
+    };
+
+    int ply, p;
+    
+    /* for player 1, then for player 2... */
+    for (p = 1; p < 3; p++) {
+    
+        /* for ply 1 through 4... */
+        for (ply = 1; ply < 5; ply++) {
+            id st = [[Connect4State new] autorelease];
+            id g = [[AlphaBeta alloc] initWithState:st];
+            [st setPlayer:p];
+
+            do {
+                [st setEvaluator:player[ [g player] - 1 ]];
+                [g fixedDepthSearchWithPly:ply];
+            } while (![g isGameOver]);
+
+            STAssertEquals([g winner], (int)1, nil);
+            [g release];
+        }
+    }
+}
+
+
 
 @end

@@ -32,13 +32,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 {
     [ab release];
     ab = [[SBAlphaBeta alloc] initWithState:
-        [[Connect4State alloc] init]];
+        [[Connect4State new] autorelease]];
     
     [aiButton setEnabled:YES];
     [aiButton setState:NSOffState];
     [self changeAi:aiButton];
     [self changeLevel:levelStepper];
     
+/* Not yet.
+    id path = [[NSBundle mainBundle] pathForResource:@"c4evaluator" ofType:@"nn"];
+    id this = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if (!this)
+        [NSException raise:@"no-nn-evaluator" format:@"no NN evaluator found"];
+*/
     [self autoMove];
 }
 

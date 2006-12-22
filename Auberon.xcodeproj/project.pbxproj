@@ -19,6 +19,11 @@
 		535025E10B3AF09A0012DAE7 /* Connect4State.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256E0B3AEC820012DAE7 /* Connect4State.m */; };
 		535025E20B3AF09B0012DAE7 /* Connect4Move.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256C0B3AEC820012DAE7 /* Connect4Move.m */; };
 		535026040B3AFC130012DAE7 /* SBAlphaBeta.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5350254D0B3AEB870012DAE7 /* SBAlphaBeta.framework */; };
+		538A0D7A0B3B583F00D37F42 /* Connect4Evaluator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 538A0D760B3B583F00D37F42 /* Connect4Evaluator.h */; };
+		538A0D7B0B3B583F00D37F42 /* Connect4Evaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 538A0D770B3B583F00D37F42 /* Connect4Evaluator.m */; };
+		538A0D7C0B3B583F00D37F42 /* Connect4NNEvaluator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 538A0D780B3B583F00D37F42 /* Connect4NNEvaluator.h */; };
+		538A0D7D0B3B583F00D37F42 /* Connect4NNEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 538A0D790B3B583F00D37F42 /* Connect4NNEvaluator.m */; };
+		538A0D8C0B3B58A700D37F42 /* SBPerceptron.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538A0D8B0B3B58A700D37F42 /* SBPerceptron.framework */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -30,7 +35,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090 /* Auberon */;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = Auberon;
 		};
 /* End PBXContainerItemProxy section */
@@ -43,6 +48,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				535026040B3AFC130012DAE7 /* SBAlphaBeta.framework in CopyFiles */,
+				538A0D7A0B3B583F00D37F42 /* Connect4Evaluator.h in CopyFiles */,
+				538A0D7C0B3B583F00D37F42 /* Connect4NNEvaluator.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +80,11 @@
 		535025CB0B3AF0420012DAE7 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		535025DD0B3AF0790012DAE7 /* Connect4StateUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect4StateUnit.h; sourceTree = "<group>"; };
 		535025DE0B3AF0790012DAE7 /* Connect4StateUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connect4StateUnit.m; sourceTree = "<group>"; };
+		538A0D760B3B583F00D37F42 /* Connect4Evaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect4Evaluator.h; sourceTree = "<group>"; };
+		538A0D770B3B583F00D37F42 /* Connect4Evaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connect4Evaluator.m; sourceTree = "<group>"; };
+		538A0D780B3B583F00D37F42 /* Connect4NNEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect4NNEvaluator.h; sourceTree = "<group>"; };
+		538A0D790B3B583F00D37F42 /* Connect4NNEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connect4NNEvaluator.m; sourceTree = "<group>"; };
+		538A0D8B0B3B58A700D37F42 /* SBPerceptron.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SBPerceptron.framework; path = ../../../../Library/Frameworks/SBPerceptron.framework; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Auberon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auberon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -92,6 +104,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				5350254E0B3AEB870012DAE7 /* SBAlphaBeta.framework in Frameworks */,
+				538A0D8C0B3B58A700D37F42 /* SBPerceptron.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +114,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				538A0D760B3B583F00D37F42 /* Connect4Evaluator.h */,
+				538A0D770B3B583F00D37F42 /* Connect4Evaluator.m */,
+				538A0D780B3B583F00D37F42 /* Connect4NNEvaluator.h */,
+				538A0D790B3B583F00D37F42 /* Connect4NNEvaluator.m */,
 				5350256B0B3AEC820012DAE7 /* Connect4Move.h */,
 				5350256C0B3AEC820012DAE7 /* Connect4Move.m */,
 				5350256D0B3AEC820012DAE7 /* Connect4State.h */,
@@ -118,6 +135,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				538A0D8B0B3B58A700D37F42 /* SBPerceptron.framework */,
 				5350254D0B3AEB870012DAE7 /* SBAlphaBeta.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
@@ -151,7 +169,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				535025CB0B3AF0420012DAE7 /* Test-Info.plist */,
 			);
 			name = Auberon;
 			sourceTree = "<group>";
@@ -172,6 +189,7 @@
 			children = (
 				5350259D0B3AEE150012DAE7 /* classic.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
+				535025CB0B3AF0420012DAE7 /* Test-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 			);
@@ -301,6 +319,8 @@
 				5350254C0B3AEB780012DAE7 /* Connect4.m in Sources */,
 				5350256F0B3AEC820012DAE7 /* Connect4Move.m in Sources */,
 				535025700B3AEC820012DAE7 /* Connect4State.m in Sources */,
+				538A0D7B0B3B583F00D37F42 /* Connect4Evaluator.m in Sources */,
+				538A0D7D0B3B583F00D37F42 /* Connect4NNEvaluator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,8 +423,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../../Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/../../../../Library/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -427,8 +449,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../../Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/../../../../Library/Frameworks\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;

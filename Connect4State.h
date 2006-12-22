@@ -22,16 +22,32 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #import <Cocoa/Cocoa.h>
 #import <SBAlphaBeta/SBAlphaBeta.h>
 
+@class Connect4Evaluator;
+
 #define COLS 7
 #define ROWS 6
+#define WINDOW 4
 
 @interface Connect4State : NSObject <SBGameState> {
+    Connect4Evaluator *evaluator;
     int player;
-    unsigned board[ROWS][COLS];
+    unsigned **board;
 }
+
+- (void)setPlayer:(int)p;
+- (void)setEvaluator:(id)e;
+- (id)evaluator;
+- (BOOL)gameOver;
 
 /* for the View */
 - (int)pieceAtRow:(int)row col:(int)col;
 - (void)getRows:(int*)rows cols:(int*)cols;
+
+
+- (unsigned int **)board;
+- (int)rows;
+- (int)cols;
+
+- (NSString *)asString;
 
 @end

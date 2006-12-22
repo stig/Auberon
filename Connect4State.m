@@ -22,16 +22,59 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #import "Connect4State.h"
 #import "Connect4Move.h"
 
-#define WINDOW 4
+#import "Connect4Evaluator.h"
 
 @implementation Connect4State
 
 - (id)init
 {
     if (self = [super init]) {
+        board = NSZoneMalloc([self zone], ROWS * (sizeof(unsigned int*)));
+        if (!board) {
+            [NSException raise:@"oom" format:@"meh. can't get memory."];
+        }
+        
+        board[0] = NSZoneMalloc([self zone], ROWS * COLS * sizeof(unsigned int));
+        if (!board[0]) {
+            free(board);
+            [NSException raise:@"oom" format:@"meh. can't get memory."];
+        }
+        
+        int i, j;
+        for (i = 1; i < ROWS; i++) {
+            board[i] = board[0] + i * COLS;
+        }
+        
+        for (i = 0; i < ROWS; i++) {
+            for (j = 0; j < COLS; j++) {
+                board[i][j] = 0;
+            }
+        }    
+        [self setEvaluator:[[Connect4Evaluator new] autorelease]];
         player = 1;
     }
     return self;
+}
+
+- (void)dealloc
+{
+   [evaluator release];
+   free(board[0]);
+   free(board);
+   [super dealloc];
+}
+
+- (void)setEvaluator:(id)e
+{
+    if (evaluator != e) {
+        [evaluator release];
+        evaluator = [e retain];
+    }
+}
+
+- (id)evaluator
+{
+    return evaluator;
 }
 
 - (BOOL)gameOver
@@ -53,7 +96,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 - (int)winner
 {
     int i, j, k, t, t2;
-    
+
     /* four-in-a-row vertically? */
     for (i = 0; i < ROWS; i++) {
         for (j = 0; j < COLS - WINDOW + 1; j++) {
@@ -96,21 +139,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 - (id)applyMove:(id)m
 {
     unsigned col = [m col];
+    if (!m)
+        [NSException raise:@"illegal move" format:@"Null pointer is not a legal move"];
     
     if ([self gameOver]) {
-        [NSException raise:@"gameover" format:@"Cannot continue moving on endstate"];
+        [NSException raise:@"gameover" format:@"Cannot continue moving on endstate (winner: %u): %@", [self winner], m];
     }
-    
+
     if (board[0][col]) {
-        [NSException raise:@"illegal move" format:@"Space already occupied"];
+        [NSException raise:@"illegal move" format:@"Space already occupied: %@", m];
     }
-    
+
+    /* starting at i=1 looks like a bug at first glance (and 2nd, and 3rd, ...) 
+       but should be correct. We have already ascertained that i=0 is free, above.
+       Now we're just checking how far down we have to drop the disk. */
     int i;
-    for (i = 1; board[i][col] == 0 && i < ROWS; i++)
+    for (i = 1; i < ROWS && board[i][col] == 0; i++)
         ;
-    i--;
-    
-    board[i][col] = player;
+    board[i - 1][col] = player;
     player = 3 - player;
     return self;
 }
@@ -137,7 +183,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     unsigned col = [m col];
     
     int i;
-    for (i = 0; board[i][col] == 0 && i < ROWS; i++)
+    for (i = 0; i < ROWS && board[i][col] == 0; i++)
         ;
     
     if (!board[i][col]) {
@@ -149,60 +195,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     return self;
 }
 
-static int calcScore(int me, int counts[3])
-{
-    int you = 3 - me;
-    int score = 0;
-    if (counts[me] && !counts[you]) {
-        score += pow(counts[me], 10);
-    }
-    else if (!counts[me] && counts[you]) {
-        score -= pow(counts[you], 10);
-    }
-    return score;
-}
-
 - (float)currentFitness
 {
-    int i, j, k;
-    float score = 0.0;
-
-    /* four-in-a-row vertically? */
-    for (i = 0; i < ROWS; i++) {
-        for (j = 0; j < COLS - WINDOW + 1; j++) {
-            int counts[3] = {0};
-            for (k = 0; k < WINDOW; k++) {
-                counts[board[i][j + k]]++;
-            }
-            score += calcScore(player, counts);
-        }
-    }
-    
-    for (i = 0; i < ROWS - WINDOW + 1; i++) {
-
-        /* horizontally? */
-        for (j = 0; j < COLS; j++) {
-            int counts[3] = {0};
-            for (k = 0; k < WINDOW; k++) {
-                counts[board[i + k][j]]++;
-            }
-            score += calcScore(player, counts);
-        }
-
-        /* how about diagonally? */
-        for (j = 0; j < COLS - WINDOW + 1; j++) {
-            int counts1[3] = {0};
-            int counts2[3] = {0};
-            for (k = 0; k < WINDOW; k++) {
-                counts1[board[i + k][j + k]]++;
-                counts2[board[ROWS - 1 - i - k][j + k]]++;
-            }
-            score += calcScore(player, counts1);
-            score += calcScore(player, counts2);
-        }
-    }
-    
-    return score;
+    if (evaluator)
+        return [evaluator evaluate: self];
+    [NSException raise:@"grahaha!" format:@"no evaluator present"];
+    return 0;
 }
 
 - (NSString *)description
@@ -210,6 +208,8 @@ static int calcScore(int me, int counts[3])
     NSMutableString *s = [NSMutableString string];
     int i, j;
     for (i = 0; i < ROWS; i++) {
+
+        /* horizontally? */
         for (j = 0; j < COLS; j++) {
             [s appendFormat:@"%d", board[i][j]];
         }
@@ -219,6 +219,20 @@ static int calcScore(int me, int counts[3])
     }
     return s;
 }
+
+- (NSString *)asString
+{
+    NSMutableString *s = [NSMutableString string];
+    int i, j;
+    for (i = 0; i < ROWS; i++) {
+        for (j = 0; j < COLS; j++) {
+            [s appendFormat:@"%d:", board[i][j]];
+        }
+    }
+    [s appendFormat:@"%lf", [self currentFitness]];
+    return s;
+}
+
 
 - (int)pieceAtRow:(int)r col:(int)c
 {
@@ -231,9 +245,31 @@ static int calcScore(int me, int counts[3])
     *cols = COLS;
 }
 
+- (void)setPlayer:(int)p
+{
+    if (p < 1 || p > 2)
+        [NSException raise:@"invalid player" format:@"player must be 1 or 2"];
+    player = p;
+}
+
 - (int)player
 {
     return player;
+}
+
+- (int)rows
+{
+    return ROWS;
+}
+
+- (int)cols
+{
+    return COLS;
+}
+
+- (unsigned int **)board
+{
+    return board;
 }
 
 @end
