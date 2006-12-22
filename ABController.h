@@ -55,9 +55,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 - (void)autoMove;
 - (void)resetGame;
 
-- (void)getRows:(int *)rows cols:(int *)cols;
-- (int)pieceAtRow:(int)row col:(int)col;
-
 - (void)clickAtRow:(int)r col:(int)c;
 
 - (NSArray *)buildState;

@@ -23,6 +23,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #import "ABController.h"
 #import "BoardView.h"
+#import "Connect4State.h"
+#import "Connect4Move.h"
 
 
 @implementation ABController
@@ -32,6 +34,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     [[board window] makeKeyAndOrderFront:self];
     [board setController:self];
     [board setTheme:[NSImage imageNamed:@"classic"]];
+    [self resetGame];
 }
 
 
@@ -157,15 +160,34 @@ Sender is expected to be an NSSlider. */
     }
 }
 
-/** Reset the current game and start a new one.
-@note This method is abstract and must be implemented in a subclass. */
-- (void)resetGame {
-    [NSException raise:@"abstract" format:@"Abstract method called"];
+- (void)resetGame
+{
+    [ab release];
+    ab = [[SBAlphaBeta alloc] initWithState:
+        [[Connect4State alloc] init]];
+    
+    [aiButton setEnabled:YES];
+    [aiButton setState:NSOffState];
+    [self changeAi:aiButton];
+    [self changeLevel:levelStepper];
+    
+    [self autoMove];
 }
-/** Draw the various views of the game.
-@note This method is abstract and must be implemented in a subclass. */
-- (void)updateViews {
-    [NSException raise:@"abstract" format:@"Abstract method called"];
+
+- (void)updateViews
+{
+    [turn setStringValue: ai == [ab player] ? @"Auberon is thinking..." : @"Your move"];
+    [aiButton setEnabled: [ab countMoves] ? NO : YES];
+    [levelStepper setEnabled: [ab countMoves] ? NO : YES];
+    
+    [board setState:[self buildState]];
+    [board setNeedsDisplay:YES];
+    [[board window] display];
+}
+
+- (void)clickAtRow:(int)y col:(int)x
+{
+    [self move:[Connect4Move moveWithCol:x]];
 }
 
 - (NSArray *)buildState

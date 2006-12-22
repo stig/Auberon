@@ -22,46 +22,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #import "Connect4.h"
 #import "BoardView.h"
 #import <SBAlphaBeta/SBAlphaBeta.h>
-#import "Connect4State.h"
-#import "Connect4Move.h"
 
 @implementation Connect4
-
-
-- (void)resetGame
-{
-    [ab release];
-    ab = [[SBAlphaBeta alloc] initWithState:
-        [[Connect4State alloc] init]];
-    
-    [aiButton setEnabled:YES];
-    [aiButton setState:NSOffState];
-    [self changeAi:aiButton];
-    [self changeLevel:levelStepper];
-    
-    [self autoMove];
-}
-
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    [self resetGame];
-}
-
-- (void)updateViews
-{
-    [turn setStringValue: ai == [ab player] ? @"Auberon is thinking..." : @"Your move"];
-    [aiButton setEnabled: [ab countMoves] ? NO : YES];
-    [levelStepper setEnabled: [ab countMoves] ? NO : YES];
-    
-    [board setState:[self buildState]];
-    [board setNeedsDisplay:YES];
-    [[board window] display];
-}
-
-- (void)clickAtRow:(int)y col:(int)x
-{
-    [self move:[Connect4Move moveWithCol:x]];
-}
 
 @end
