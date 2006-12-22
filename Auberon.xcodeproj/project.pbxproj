@@ -30,7 +30,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090 /* Auberon */;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = Auberon;
 		};
 /* End PBXContainerItemProxy section */
@@ -151,7 +151,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				535025CB0B3AF0420012DAE7 /* Test-Info.plist */,
 			);
 			name = Auberon;
 			sourceTree = "<group>";
@@ -172,6 +171,7 @@
 			children = (
 				5350259D0B3AEE150012DAE7 /* classic.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
+				535025CB0B3AF0420012DAE7 /* Test-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 			);
