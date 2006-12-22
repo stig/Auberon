@@ -20,12 +20,12 @@
  */
 #import <Cocoa/Cocoa.h>
 
-@class ABController;
+@class Connect4;
 
 @interface BoardView : NSMatrix
 {
     NSArray *disks;
-    ABController *controller;
+    Connect4 *controller;
     NSArray *state;
     int rows, cols;
 }

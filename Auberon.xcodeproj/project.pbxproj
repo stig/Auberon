@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5350254A0B3AEB780012DAE7 /* ABController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535025450B3AEB780012DAE7 /* ABController.m */; };
 		5350254B0B3AEB780012DAE7 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535025470B3AEB780012DAE7 /* BoardView.m */; };
 		5350254C0B3AEB780012DAE7 /* Connect4.m in Sources */ = {isa = PBXBuildFile; fileRef = 535025490B3AEB780012DAE7 /* Connect4.m */; };
 		5350256F0B3AEC820012DAE7 /* Connect4Move.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256C0B3AEC820012DAE7 /* Connect4Move.m */; };
@@ -56,8 +55,6 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* Auberon_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auberon_Prefix.pch; sourceTree = "<group>"; };
-		535025440B3AEB780012DAE7 /* ABController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABController.h; sourceTree = "<group>"; };
-		535025450B3AEB780012DAE7 /* ABController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABController.m; sourceTree = "<group>"; };
 		535025460B3AEB780012DAE7 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
 		535025470B3AEB780012DAE7 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
 		535025480B3AEB780012DAE7 /* Connect4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect4.h; sourceTree = "<group>"; };
@@ -103,8 +100,6 @@
 				5350256C0B3AEC820012DAE7 /* Connect4Move.m */,
 				5350256D0B3AEC820012DAE7 /* Connect4State.h */,
 				5350256E0B3AEC820012DAE7 /* Connect4State.m */,
-				535025440B3AEB780012DAE7 /* ABController.h */,
-				535025450B3AEB780012DAE7 /* ABController.m */,
 				535025460B3AEB780012DAE7 /* BoardView.h */,
 				535025470B3AEB780012DAE7 /* BoardView.m */,
 				535025480B3AEB780012DAE7 /* Connect4.h */,
@@ -294,7 +289,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				5350254A0B3AEB780012DAE7 /* ABController.m in Sources */,
 				5350254B0B3AEB780012DAE7 /* BoardView.m in Sources */,
 				5350254C0B3AEB780012DAE7 /* Connect4.m in Sources */,
 				5350256F0B3AEC820012DAE7 /* Connect4Move.m in Sources */,
