@@ -151,10 +151,6 @@ Sender is expected to be an NSSlider. */
     if ([ab isGameOver]) {
         [self gameOverAlert];
     }
-    else if ([ab mustPass]) {
-        [self passAlert];
-    }
-    
     if (ai == [[self state] player]) {
         [self aiMove];
         [self updateViews];
