@@ -20,17 +20,18 @@
  */
 #import <Cocoa/Cocoa.h>
 
-#import "ABController.h"
+@class Connect4;
 
 @interface BoardView : NSMatrix
 {
     NSArray *disks;
-    ABController *controller;
+    Connect4 *controller;
     NSArray *state;
     int rows, cols;
 }
 
 - (void)setController:(id)ctrl;
+- (void)setTheme:(id)ctrl;
 - (void)setState:(id)this;
 
 @end

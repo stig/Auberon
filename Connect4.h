@@ -19,10 +19,46 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 */
 
-#import "ABController.h"
+#import <Cocoa/Cocoa.h>
+#import <SBAlphaBeta/SBAlphaBeta.h>
 
-@interface Connect4 : ABController
+@class BoardView;
+
+#define WHITE 1
+#define BLACK 2
+
+@interface Connect4 : NSObject
 {
+    int ai;
+    SBAlphaBeta *ab;
+    
+    IBOutlet BoardView *board;
+    IBOutlet NSStepper *levelStepper;
+    IBOutlet NSButton *aiButton;
+    
+    IBOutlet NSTextField *level;
+    IBOutlet NSTextField *turn;
 }
+
+- (IBAction)changeAi:(id)sender;
+- (IBAction)changeLevel:(id)sender;
+- (IBAction)newGame:(id)sender;
+- (IBAction)undo:(id)sender;
+- (IBAction)newGame:(id)sender;
+
+- (id)state;
+- (void)move:(id)move;
+- (void)gameOverAlert;
+- (void)aiMove;
+
+/* abstract methods */
+
+- (void)updateViews;
+- (void)autoMove;
+- (void)resetGame;
+
+- (void)clickAtRow:(int)r col:(int)c;
+
+- (NSArray *)buildState;
 
 @end

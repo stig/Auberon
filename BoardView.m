@@ -19,6 +19,7 @@
  
  */
 #import "BoardView.h"
+#import "Connect4.h"
 
 @implementation BoardView
 
