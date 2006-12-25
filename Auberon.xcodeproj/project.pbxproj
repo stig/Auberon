@@ -32,6 +32,9 @@
 		53E67E5D0B3F567F004C8851 /* Connect4NNEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 538A0D790B3B583F00D37F42 /* Connect4NNEvaluator.m */; };
 		53E67E5E0B3F5681004C8851 /* Connect4Move.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256C0B3AEC820012DAE7 /* Connect4Move.m */; };
 		53E67E5F0B3F5682004C8851 /* Connect4Evaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 538A0D770B3B583F00D37F42 /* Connect4Evaluator.m */; };
+		53E67E670B3F5796004C8851 /* Connect4State.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256E0B3AEC820012DAE7 /* Connect4State.m */; };
+		53E67E6D0B3F57A7004C8851 /* Connect4Move.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256C0B3AEC820012DAE7 /* Connect4Move.m */; };
+		53E67E6E0B3F57A8004C8851 /* Connect4Evaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 538A0D770B3B583F00D37F42 /* Connect4Evaluator.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -92,7 +95,7 @@
 		538A0D790B3B583F00D37F42 /* Connect4NNEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connect4NNEvaluator.m; sourceTree = "<group>"; };
 		538A0D8B0B3B58A700D37F42 /* SBPerceptron.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SBPerceptron.framework; path = ../Library/Frameworks/SBPerceptron.framework; sourceTree = SOURCE_ROOT; };
 		53E67E2F0B3F5509004C8851 /* ga */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "compiled.mach-o.executable"; path = ga; sourceTree = BUILT_PRODUCTS_DIR; };
-		53E67E440B3F558D004C8851 /* states */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = states; sourceTree = BUILT_PRODUCTS_DIR; };
+		53E67E440B3F558D004C8851 /* states */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "compiled.mach-o.executable"; path = states; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E67E4B0B3F55D8004C8851 /* c4states.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = c4states.m; sourceTree = "<group>"; };
 		53E67E4D0B3F55EF004C8851 /* c4ga.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = c4ga.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -389,6 +392,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E67E4C0B3F55D8004C8851 /* c4states.m in Sources */,
+				53E67E670B3F5796004C8851 /* Connect4State.m in Sources */,
+				53E67E6D0B3F57A7004C8851 /* Connect4Move.m in Sources */,
+				53E67E6E0B3F57A8004C8851 /* Connect4Evaluator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
