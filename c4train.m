@@ -30,7 +30,7 @@ int main(int argc, char **argv)
         [set addObject:[NSArray arrayWithObjects:input, output, nil]];
     }
 
-    id net = [SBPerceptron netWithLayers:@"42,70,1"];
+    id net = [SBPerceptron perceptronWithLayers:@"42,70,1"];
     [net setOutputRangeMin:0.0 max:5000000.0];
     [net setProgressRate:10];
     [net setMomentumRate:0.3];
@@ -38,7 +38,7 @@ int main(int argc, char **argv)
     [net trainWithData:set];
     id input = [[set lastObject] objectAtIndex:0];
     id output = [[set lastObject] lastObject];
-    NSLog(@"%@:%@", output, [net computeOutput:input]);
+    NSLog(@"%@:%@", output, [net outputForInputs:input]);
 
     [pool release];
     return 0;

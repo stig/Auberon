@@ -49,7 +49,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
         for (j = 0; j < COLS; j++)
             [input addObject:[NSNumber numberWithInt:board[i][j]]];
     
-    return [[[self computeOutput:input] lastObject] floatValue] - 0.5;
+    return [[[self outputForInputs:input] lastObject] floatValue] - 0.5;
 }
 
 - (void)setScore:(float)s
