@@ -35,6 +35,10 @@
 		53E67E670B3F5796004C8851 /* Connect4State.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256E0B3AEC820012DAE7 /* Connect4State.m */; };
 		53E67E6D0B3F57A7004C8851 /* Connect4Move.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256C0B3AEC820012DAE7 /* Connect4Move.m */; };
 		53E67E6E0B3F57A8004C8851 /* Connect4Evaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 538A0D770B3B583F00D37F42 /* Connect4Evaluator.m */; };
+		53E67E7C0B3F58BE004C8851 /* SBPerceptron.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538A0D8B0B3B58A700D37F42 /* SBPerceptron.framework */; };
+		53E67E7D0B3F58C0004C8851 /* SBAlphaBeta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5350254D0B3AEB870012DAE7 /* SBAlphaBeta.framework */; };
+		53E67E7E0B3F58C2004C8851 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
+		53E67E8C0B3FF7EA004C8851 /* c4train.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E67E8B0B3FF7EA004C8851 /* c4train.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -98,6 +102,8 @@
 		53E67E440B3F558D004C8851 /* states */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "compiled.mach-o.executable"; path = states; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E67E4B0B3F55D8004C8851 /* c4states.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = c4states.m; sourceTree = "<group>"; };
 		53E67E4D0B3F55EF004C8851 /* c4ga.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = c4ga.m; sourceTree = "<group>"; };
+		53E67E7A0B3F589A004C8851 /* train */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "compiled.mach-o.executable"; path = train; sourceTree = BUILT_PRODUCTS_DIR; };
+		53E67E8B0B3FF7EA004C8851 /* c4train.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = c4train.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Auberon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auberon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -125,6 +131,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E67E470B3F55AA004C8851 /* SBAlphaBeta.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53E67E780B3F589A004C8851 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53E67E7C0B3F58BE004C8851 /* SBPerceptron.framework in Frameworks */,
+				53E67E7D0B3F58C0004C8851 /* SBAlphaBeta.framework in Frameworks */,
+				53E67E7E0B3F58C2004C8851 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +203,7 @@
 				535025CA0B3AF0410012DAE7 /* Test.octest */,
 				53E67E2F0B3F5509004C8851 /* ga */,
 				53E67E440B3F558D004C8851 /* states */,
+				53E67E7A0B3F589A004C8851 /* train */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,6 +223,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				53E67E8B0B3FF7EA004C8851 /* c4train.m */,
 				53E67E4D0B3F55EF004C8851 /* c4ga.m */,
 				53E67E4B0B3F55D8004C8851 /* c4states.m */,
 				535025DD0B3AF0790012DAE7 /* Connect4StateUnit.h */,
@@ -291,6 +309,22 @@
 			productReference = 53E67E440B3F558D004C8851 /* states */;
 			productType = "com.apple.product-type.tool";
 		};
+		53E67E790B3F589A004C8851 /* train */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53E67E860B3F58F1004C8851 /* Build configuration list for PBXNativeTarget "train" */;
+			buildPhases = (
+				53E67E770B3F589A004C8851 /* Sources */,
+				53E67E780B3F589A004C8851 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = train;
+			productName = train;
+			productReference = 53E67E7A0B3F589A004C8851 /* train */;
+			productType = "com.apple.product-type.tool";
+		};
 		8D1107260486CEB800E47090 /* Auberon */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Auberon" */;
@@ -324,6 +358,7 @@
 				535025C90B3AF0410012DAE7 /* Test */,
 				53E67E2E0B3F5509004C8851 /* ga */,
 				53E67E430B3F558D004C8851 /* states */,
+				53E67E790B3F589A004C8851 /* train */,
 			);
 		};
 /* End PBXProject section */
@@ -395,6 +430,14 @@
 				53E67E670B3F5796004C8851 /* Connect4State.m in Sources */,
 				53E67E6D0B3F57A7004C8851 /* Connect4Move.m in Sources */,
 				53E67E6E0B3F57A8004C8851 /* Connect4Evaluator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53E67E770B3F589A004C8851 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53E67E8C0B3FF7EA004C8851 /* c4train.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +659,62 @@
 			};
 			name = Release;
 		};
+		53E67E870B3F58F1004C8851 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../Library/Frameworks\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = "$(HOME)/bin";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = train;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		53E67E880B3F58F1004C8851 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../Library/Frameworks\"";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = "$(HOME)/bin";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = train;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -711,6 +810,15 @@
 			buildConfigurations = (
 				53E67E490B3F55C8004C8851 /* Debug */,
 				53E67E4A0B3F55C8004C8851 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53E67E860B3F58F1004C8851 /* Build configuration list for PBXNativeTarget "train" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53E67E870B3F58F1004C8851 /* Debug */,
+				53E67E880B3F58F1004C8851 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
