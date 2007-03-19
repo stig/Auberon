@@ -182,7 +182,7 @@ Sender is expected to be an NSSlider. */
     [aiButton setEnabled: [ab countMoves] ? NO : YES];
     [levelStepper setEnabled: [ab countMoves] ? NO : YES];
     
-    [board setState:[[self state] board]];
+    [board setBoard:[[self state] board]];
     [board setNeedsDisplay:YES];
     [[board window] display];
 }
