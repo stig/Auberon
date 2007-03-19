@@ -20,11 +20,17 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 #import "Connect4State.h"
-#import "Connect4Move.h"
-
 #define WINDOW 4
 
 @implementation Connect4State
+
++ (id)moveWithCol:(int)col
+{
+    if (col > 6 || col < 0)
+        [NSException raise:@"illegal move"
+                    format:@"move not in the legal range"];
+    return [NSNumber numberWithInt:col];
+}
 
 - (id)init
 {
@@ -93,9 +99,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     return 0;
 }
 
-- (id)applyMove:(id)m
+- (void)transformWithMove:(id)m
 {
-    unsigned col = [m col];
+    unsigned col = [m intValue];
     
     if ([self gameOver]) {
         [NSException raise:@"gameover" format:@"Cannot continue moving on endstate"];
@@ -112,7 +118,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     
     board[i][col] = player;
     player = 3 - player;
-    return self;
 }
 
 - (NSArray *)movesAvailable
@@ -126,15 +131,15 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     int i;
     for (i = 0; i < COLS; i++) {
         if (board[0][i] == 0) {
-            [a addObject:[Connect4Move moveWithCol:i]];
+            [a addObject:[Connect4State moveWithCol:i]];
         }
     }
     return a;
 }
 
-- (id)undoMove:(id)m
+- (void)undoTransformWithMove:(id)m
 {
-    unsigned col = [m col];
+    unsigned col = [m intValue];
     
     int i;
     for (i = 0; board[i][col] == 0 && i < ROWS; i++)
@@ -146,7 +151,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     
     board[i][col] = 0;
     player = 3 - player;
-    return self;
 }
 
 static int calcScore(int me, int counts[3])
@@ -162,7 +166,7 @@ static int calcScore(int me, int counts[3])
     return score;
 }
 
-- (float)currentFitness
+- (double)currentFitness
 {
     int i, j, k;
     float score = 0.0;

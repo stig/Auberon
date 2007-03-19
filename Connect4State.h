@@ -19,16 +19,18 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 */
 
-#import <Cocoa/Cocoa.h>
 #import <SBAlphaBeta/SBAlphaBeta.h>
 
 #define COLS 7
 #define ROWS 6
 
-@interface Connect4State : NSObject <SBGameState> {
+@interface Connect4State : NSObject <SBMutableAlphaBetaState> {
     int player;
     unsigned board[ROWS][COLS];
 }
+
++ (id)moveWithCol:(int)col;
+- (int)winner;
 
 /* for the View */
 - (int)pieceAtRow:(int)row col:(int)col;

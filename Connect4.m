@@ -23,7 +23,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #import "BoardView.h"
 #import <SBAlphaBeta/SBAlphaBeta.h>
 #import "Connect4State.h"
-#import "Connect4Move.h"
 
 @implementation Connect4
 
@@ -41,7 +40,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 {
     NSAlert *alert = [[[NSAlert alloc] init] autorelease];
 
-    int winner = [ab winner];
+    int winner = [[self state] winner];
     NSString *msg = winner == ai ? @"You lost!" :
                     !winner      ? @"You managed a draw!" :
                                    @"You won!";
@@ -59,9 +58,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 and updates views in between. */
 - (IBAction)undo:(id)sender
 {
-    [ab undo];
+    [ab undoLastMove];
     [self updateViews];
-    [ab undo];
+    [ab undoLastMove];
     [self autoMove];
 }
 
@@ -78,9 +77,9 @@ Sender is expected to be an NSSlider. */
 {
     int val = [sender intValue];
     [level setIntValue:val];
-    [ab setMaxPly:val];
+    maxPly = val;
     val *= 10;
-    [ab setMaxTime: (NSTimeInterval)(val * val / 1000.0) ];
+    maxTime = (NSTimeInterval)(val * val / 1000.0);
 }
 
 /** Displays an alert when the "New Game" action is chosen. */
@@ -110,7 +109,7 @@ Sender is expected to be an NSSlider. */
 /** Make the AI perform a move. */
 - (void)aiMove
 {
-    if ([ab maxPly] < 4 ? [ab fixedDepthSearch] : [ab iterativeSearch]) {
+    if (maxPly < 4 ? [ab applyMoveFromSearchWithPly:maxPly] : [ab applyMoveFromSearchWithInterval:maxTime]) {
         [self autoMove];
     }
     else {
@@ -122,7 +121,7 @@ Sender is expected to be an NSSlider. */
 - (void)move:(id)m
 {
     @try {
-        [ab move:m];
+        [ab applyMove:m];
     }
     @catch (id any) {
         NSLog(@"Illegal move attempted: %@", m);
@@ -135,7 +134,12 @@ Sender is expected to be an NSSlider. */
 /** Return the current state (pass-through to SBAlphaBeta). */
 - (id)state
 {
-    return [ab state];
+    return [ab currentState];
+}
+
+- (int)player
+{
+    return [[self state] player];
 }
 
 - (void)dealloc
@@ -152,7 +156,7 @@ Sender is expected to be an NSSlider. */
     if ([ab isGameOver]) {
         [self gameOverAlert];
     }
-    if (ai == [[self state] player]) {
+    if (ai == [self player]) {
         [self aiMove];
         [self updateViews];
     }
@@ -174,7 +178,7 @@ Sender is expected to be an NSSlider. */
 
 - (void)updateViews
 {
-    [turn setStringValue: ai == [ab player] ? @"Auberon is thinking..." : @"Your move"];
+    [turn setStringValue: ai == [self player] ? @"Auberon is thinking..." : @"Your move"];
     [aiButton setEnabled: [ab countMoves] ? NO : YES];
     [levelStepper setEnabled: [ab countMoves] ? NO : YES];
     
@@ -185,18 +189,18 @@ Sender is expected to be an NSSlider. */
 
 - (void)clickAtRow:(int)y col:(int)x
 {
-    [self move:[Connect4Move moveWithCol:x]];
+    [self move:[Connect4State moveWithCol:x]];
 }
 
 - (NSArray *)buildState
 {
     id st = [NSMutableArray array];
     int rows, cols, r, c;
-    [[ab state] getRows:&rows cols:&cols];
+    [[self state] getRows:&rows cols:&cols];
     for (r = 0; r < rows; r++) {
         id d = [NSMutableArray array];
         for (c = 0; c < cols; c++) {
-            int p = [[ab state] pieceAtRow:r col:c];
+            int p = [[self state] pieceAtRow:r col:c];
             [d addObject:[NSNumber numberWithInt:p]];
         }
         [st addObject:d];
