@@ -10,29 +10,17 @@
 		5350254B0B3AEB780012DAE7 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535025470B3AEB780012DAE7 /* BoardView.m */; };
 		5350254C0B3AEB780012DAE7 /* Connect4.m in Sources */ = {isa = PBXBuildFile; fileRef = 535025490B3AEB780012DAE7 /* Connect4.m */; };
 		5350254E0B3AEB870012DAE7 /* SBAlphaBeta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5350254D0B3AEB870012DAE7 /* SBAlphaBeta.framework */; };
-		5350256F0B3AEC820012DAE7 /* Connect4Move.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256C0B3AEC820012DAE7 /* Connect4Move.m */; };
 		535025700B3AEC820012DAE7 /* Connect4State.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256E0B3AEC820012DAE7 /* Connect4State.m */; };
 		5350259E0B3AEE150012DAE7 /* classic.png in Resources */ = {isa = PBXBuildFile; fileRef = 5350259D0B3AEE150012DAE7 /* classic.png */; };
-		535025DF0B3AF0790012DAE7 /* Connect4StateUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 535025DE0B3AF0790012DAE7 /* Connect4StateUnit.m */; };
-		535025E00B3AF0950012DAE7 /* SBAlphaBeta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5350254D0B3AEB870012DAE7 /* SBAlphaBeta.framework */; };
-		535025E10B3AF09A0012DAE7 /* Connect4State.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256E0B3AEC820012DAE7 /* Connect4State.m */; };
-		535025E20B3AF09B0012DAE7 /* Connect4Move.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256C0B3AEC820012DAE7 /* Connect4Move.m */; };
 		535026040B3AFC130012DAE7 /* SBAlphaBeta.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5350254D0B3AEB870012DAE7 /* SBAlphaBeta.framework */; };
+		53727B480BAE164700B7B9DA /* SBAlphaBeta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5350254D0B3AEB870012DAE7 /* SBAlphaBeta.framework */; };
+		53727B490BAE165000B7B9DA /* Connect4State.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256E0B3AEC820012DAE7 /* Connect4State.m */; };
+		53727B4A0BAE165700B7B9DA /* Connect4StateUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 535025DE0B3AF0790012DAE7 /* Connect4StateUnit.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		535025D30B3AF0560012DAE7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090;
-			remoteInfo = Auberon;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		535026020B3AFBF50012DAE7 /* CopyFiles */ = {
@@ -61,25 +49,23 @@
 		535025480B3AEB780012DAE7 /* Connect4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect4.h; sourceTree = "<group>"; };
 		535025490B3AEB780012DAE7 /* Connect4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connect4.m; sourceTree = "<group>"; };
 		5350254D0B3AEB870012DAE7 /* SBAlphaBeta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SBAlphaBeta.framework; path = ../Library/Frameworks/SBAlphaBeta.framework; sourceTree = SOURCE_ROOT; };
-		5350256B0B3AEC820012DAE7 /* Connect4Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect4Move.h; sourceTree = "<group>"; };
-		5350256C0B3AEC820012DAE7 /* Connect4Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connect4Move.m; sourceTree = "<group>"; };
 		5350256D0B3AEC820012DAE7 /* Connect4State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect4State.h; sourceTree = "<group>"; };
 		5350256E0B3AEC820012DAE7 /* Connect4State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connect4State.m; sourceTree = "<group>"; };
 		5350259D0B3AEE150012DAE7 /* classic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classic.png; sourceTree = "<group>"; };
-		535025CA0B3AF0410012DAE7 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		535025CB0B3AF0420012DAE7 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		535025DD0B3AF0790012DAE7 /* Connect4StateUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect4StateUnit.h; sourceTree = "<group>"; };
 		535025DE0B3AF0790012DAE7 /* Connect4StateUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connect4StateUnit.m; sourceTree = "<group>"; };
+		53727B3F0BAE162B00B7B9DA /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Auberon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auberon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		535025C70B3AF0410012DAE7 /* Frameworks */ = {
+		53727B3C0BAE162B00B7B9DA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				535025E00B3AF0950012DAE7 /* SBAlphaBeta.framework in Frameworks */,
+				53727B480BAE164700B7B9DA /* SBAlphaBeta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,8 +84,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5350256B0B3AEC820012DAE7 /* Connect4Move.h */,
-				5350256C0B3AEC820012DAE7 /* Connect4Move.m */,
 				5350256D0B3AEC820012DAE7 /* Connect4State.h */,
 				5350256E0B3AEC820012DAE7 /* Connect4State.m */,
 				535025460B3AEB780012DAE7 /* BoardView.h */,
@@ -133,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* Auberon.app */,
-				535025CA0B3AF0410012DAE7 /* Test.octest */,
+				53727B3F0BAE162B00B7B9DA /* Test.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,23 +169,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		535025C90B3AF0410012DAE7 /* Test */ = {
+		53727B3E0BAE162B00B7B9DA /* Test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 535025CC0B3AF0420012DAE7 /* Build configuration list for PBXNativeTarget "Test" */;
+			buildConfigurationList = 53727B530BAE167000B7B9DA /* Build configuration list for PBXNativeTarget "Test" */;
 			buildPhases = (
-				535025C50B3AF0410012DAE7 /* Resources */,
-				535025C60B3AF0410012DAE7 /* Sources */,
-				535025C70B3AF0410012DAE7 /* Frameworks */,
-				535025C80B3AF0410012DAE7 /* ShellScript */,
+				53727B3A0BAE162B00B7B9DA /* Resources */,
+				53727B3B0BAE162B00B7B9DA /* Sources */,
+				53727B3C0BAE162B00B7B9DA /* Frameworks */,
+				53727B3D0BAE162B00B7B9DA /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				535025D40B3AF0560012DAE7 /* PBXTargetDependency */,
 			);
 			name = Test;
 			productName = Test;
-			productReference = 535025CA0B3AF0410012DAE7 /* Test.octest */;
+			productReference = 53727B3F0BAE162B00B7B9DA /* Test.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		8D1107260486CEB800E47090 /* Auberon */ = {
@@ -234,13 +217,13 @@
 			projectDirPath = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Auberon */,
-				535025C90B3AF0410012DAE7 /* Test */,
+				53727B3E0BAE162B00B7B9DA /* Test */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		535025C50B3AF0410012DAE7 /* Resources */ = {
+		53727B3A0BAE162B00B7B9DA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -260,7 +243,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		535025C80B3AF0410012DAE7 /* ShellScript */ = {
+		53727B3D0BAE162B00B7B9DA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -276,13 +259,12 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		535025C60B3AF0410012DAE7 /* Sources */ = {
+		53727B3B0BAE162B00B7B9DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				535025DF0B3AF0790012DAE7 /* Connect4StateUnit.m in Sources */,
-				535025E10B3AF09A0012DAE7 /* Connect4State.m in Sources */,
-				535025E20B3AF09B0012DAE7 /* Connect4Move.m in Sources */,
+				53727B490BAE165000B7B9DA /* Connect4State.m in Sources */,
+				53727B4A0BAE165700B7B9DA /* Connect4StateUnit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,20 +275,11 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				5350254B0B3AEB780012DAE7 /* BoardView.m in Sources */,
 				5350254C0B3AEB780012DAE7 /* Connect4.m in Sources */,
-				5350256F0B3AEC820012DAE7 /* Connect4Move.m in Sources */,
 				535025700B3AEC820012DAE7 /* Connect4State.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		535025D40B3AF0560012DAE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8D1107260486CEB800E47090 /* Auberon */;
-			targetProxy = 535025D30B3AF0560012DAE7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
@@ -328,7 +301,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		535025CD0B3AF0420012DAE7 /* Debug */ = {
+		53727B540BAE167000B7B9DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -336,7 +309,7 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../../Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../Library/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -360,7 +333,7 @@
 			};
 			name = Debug;
 		};
-		535025CE0B3AF0420012DAE7 /* Release */ = {
+		53727B550BAE167000B7B9DA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
@@ -368,7 +341,7 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../../Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../Library/Frameworks\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -440,7 +413,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
@@ -451,9 +428,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_CFLAGS = "-fobjc-exceptions";
+				OTHER_CFLAGS = "";
 				PREBINDING = NO;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
@@ -462,11 +443,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		535025CC0B3AF0420012DAE7 /* Build configuration list for PBXNativeTarget "Test" */ = {
+		53727B530BAE167000B7B9DA /* Build configuration list for PBXNativeTarget "Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				535025CD0B3AF0420012DAE7 /* Debug */,
-				535025CE0B3AF0420012DAE7 /* Release */,
+				53727B540BAE167000B7B9DA /* Debug */,
+				53727B550BAE167000B7B9DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

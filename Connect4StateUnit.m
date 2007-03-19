@@ -36,13 +36,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 - (void)testMove
 {
-    Connect4Move *m;
-
-    STAssertNotNil(m = [Connect4Move moveWithCol:3], nil);
-    STAssertEquals([m col], (unsigned)3, nil);
-
-    STAssertThrows([Connect4Move moveWithCol:9], @"failed to throw exception for invalid move");
-    STAssertThrows([Connect4Move moveWithCol:-1], @"failed to throw exception for invalid move");
+    STAssertThrows([Connect4State moveWithCol:9], @"failed to throw exception for invalid move");
+    STAssertThrows([Connect4State moveWithCol:-1], @"failed to throw exception for invalid move");
 }
 
 - (NSArray *)states
@@ -59,34 +54,30 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
         nil];
 }
 
-- (void)testApplyMoves
+- (void)testtransformWithMoves
 {
     NSArray *a = [self states];
 
     STAssertEqualObjects([s description], [a objectAtIndex:0], nil);
-    STAssertEqualObjects([[s applyMove:[Connect4Move moveWithCol:0]] description], [a objectAtIndex:1], nil);
-    STAssertEqualObjects([[s applyMove:[Connect4Move moveWithCol:0]] description], [a objectAtIndex:2], nil);
-    STAssertEqualObjects([[s applyMove:[Connect4Move moveWithCol:1]] description], [a objectAtIndex:3], nil);
-    STAssertEqualObjects([[s applyMove:[Connect4Move moveWithCol:0]] description], [a objectAtIndex:4], nil);
-    STAssertEqualObjects([[s applyMove:[Connect4Move moveWithCol:0]] description], [a objectAtIndex:5], nil);
-    STAssertEqualObjects([[s applyMove:[Connect4Move moveWithCol:0]] description], [a objectAtIndex:6], nil);
-    STAssertEqualObjects([[s applyMove:[Connect4Move moveWithCol:0]] description], [a objectAtIndex:7], nil);
-    STAssertThrows([s applyMove:[Connect4Move moveWithCol:0]], nil);
+    id moves = [@"0,0,1,0,0,0,0" componentsSeparatedByString:@","];
+    for (int i = 0; i < [moves count]; i++) {
+        [s transformWithMove:[moves objectAtIndex:i]];
+        STAssertEqualObjects([s description], [a objectAtIndex:i+1], nil);
+    }
+    STAssertThrows([s transformWithMove:[Connect4State moveWithCol:0]], nil);
     STAssertEqualObjects([s description], [a objectAtIndex:7], nil);
 }
 
 - (void)testUndoMoves
 {
-    [self testApplyMoves];
+    [self testtransformWithMoves];
 
     NSArray *a = [self states];
-    STAssertEqualObjects([[s undoMove:[Connect4Move moveWithCol:0]] description], [a objectAtIndex:6], nil);
-    STAssertEqualObjects([[s undoMove:[Connect4Move moveWithCol:0]] description], [a objectAtIndex:5], nil);
-    STAssertEqualObjects([[s undoMove:[Connect4Move moveWithCol:0]] description], [a objectAtIndex:4], nil);
-    STAssertEqualObjects([[s undoMove:[Connect4Move moveWithCol:0]] description], [a objectAtIndex:3], nil);
-    STAssertEqualObjects([[s undoMove:[Connect4Move moveWithCol:1]] description], [a objectAtIndex:2], nil);
-    STAssertEqualObjects([[s undoMove:[Connect4Move moveWithCol:0]] description], [a objectAtIndex:1], nil);
-    STAssertEqualObjects([[s undoMove:[Connect4Move moveWithCol:0]] description], [a objectAtIndex:0], nil);
+    id moves = [@"0,0,1,0,0,0,0" componentsSeparatedByString:@","];
+    for (int i = 6; i >= 0; i--) {
+        [s undoTransformWithMove:[moves objectAtIndex:i]];
+        STAssertEqualObjects([s description], [a objectAtIndex:i], nil);
+    }
 }
 
 - (void)testAvailableMoves
@@ -96,25 +87,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     STAssertNotNil(a = [s movesAvailable], nil);
     STAssertEquals([a count], (unsigned)7, nil);
 
-    int i;
-    for (i = 0; i < 7; i++) {
-        STAssertEquals([[a objectAtIndex:i] col], (unsigned)i, nil);
+    for (int i = 0; i < 7; i++) {
+        STAssertEquals([[a objectAtIndex:i] intValue], i, nil);
     }
 
-    [self testApplyMoves];
+    [self testtransformWithMoves];
     STAssertNotNil(a = [s movesAvailable], nil);
     STAssertEquals([a count], (unsigned)6, nil);
-    for (i = 0; i < 6; i++) {
-        STAssertEquals([[a objectAtIndex:i] col], (unsigned)i + 1, nil);
+    for (int i = 0; i < 6; i++) {
+        STAssertEquals([[a objectAtIndex:i] intValue], i + 1, nil);
     }
     
     // make player 1 get a winning line
-    [s applyMove:[Connect4Move moveWithCol:2]];
-    [s applyMove:[Connect4Move moveWithCol:1]];
-    [s applyMove:[Connect4Move moveWithCol:2]];
-    [s applyMove:[Connect4Move moveWithCol:1]];
-    [s applyMove:[Connect4Move moveWithCol:2]];
-    [s applyMove:[Connect4Move moveWithCol:1]];
+    [s transformWithMove:[Connect4State moveWithCol:2]];
+    [s transformWithMove:[Connect4State moveWithCol:1]];
+    [s transformWithMove:[Connect4State moveWithCol:2]];
+    [s transformWithMove:[Connect4State moveWithCol:1]];
+    [s transformWithMove:[Connect4State moveWithCol:2]];
+    [s transformWithMove:[Connect4State moveWithCol:1]];
     
     STAssertNotNil(a = [s movesAvailable], nil);
     STAssertEquals([a count], (unsigned)0, nil);
@@ -129,21 +119,18 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 - (void)testApplyIllegalMove
 {
     [self testAvailableMoves];
-    STAssertThrows([s applyMove:[Connect4Move moveWithCol:6]], @"expected exception");
+    STAssertThrows([s transformWithMove:[Connect4State moveWithCol:6]], @"expected exception");
 }
 
 - (void)testFitness
 {
-    STAssertEqualsWithAccuracy([s currentFitness], (float)0.0, 0.0001, nil);
-    STAssertEqualsWithAccuracy([[s applyMove:[Connect4Move moveWithCol:0]] currentFitness], (float)-3.0, 0.0001, nil);
-    STAssertEqualsWithAccuracy([[s applyMove:[Connect4Move moveWithCol:0]] currentFitness], (float)-1.0, 0.0001, nil);
-    STAssertEqualsWithAccuracy([[s applyMove:[Connect4Move moveWithCol:0]] currentFitness], (float)-3.0, 0.0001, nil);
-    STAssertEqualsWithAccuracy([[s applyMove:[Connect4Move moveWithCol:0]] currentFitness], (float)0.0, 0.0001, nil);
-    STAssertEqualsWithAccuracy([[s applyMove:[Connect4Move moveWithCol:1]] currentFitness], (float)-1026.0, 0.0001, nil);
-    STAssertEqualsWithAccuracy([[s applyMove:[Connect4Move moveWithCol:4]] currentFitness], (float)1021.0, 0.0001, nil);
-    STAssertEqualsWithAccuracy([[s applyMove:[Connect4Move moveWithCol:3]] currentFitness], (float)-59051.0, 0.0001, nil);
-    STAssertEqualsWithAccuracy([[s applyMove:[Connect4Move moveWithCol:6]] currentFitness], (float)59049.0, 0.0001, nil);
-    STAssertEqualsWithAccuracy([[s applyMove:[Connect4Move moveWithCol:2]] currentFitness], (float)-1048578.0, 0.0001, nil);
+    STAssertEqualsWithAccuracy([s currentFitness], (double)0.0, 0.0001, nil);
+    id moves   = [@"0,0,0,0,1,4,3,6,2" componentsSeparatedByString:@","];
+    id fitness = [@"-3,-1,-3,0,-1026,1021,-59051,59049,-1048578" componentsSeparatedByString:@","];
+    for (int i = 0; i < [moves count]; i++) {
+        [s transformWithMove:[moves objectAtIndex:i]];
+        STAssertEqualsWithAccuracy([s currentFitness], [[fitness objectAtIndex:i] doubleValue], 0.0001, nil);
+    }
 }
 
 @end

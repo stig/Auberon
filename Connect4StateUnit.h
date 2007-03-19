@@ -21,7 +21,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "Connect4State.h"
-#import "Connect4Move.h"
 
 @interface Connect4StateUnit : SenTestCase {
     Connect4State *s;

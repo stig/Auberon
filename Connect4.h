@@ -29,7 +29,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 @interface Connect4 : NSObject
 {
-    int ai;
+    int ai, maxPly;
+    NSTimeInterval maxTime;
     SBAlphaBeta *ab;
     
     IBOutlet BoardView *board;
@@ -46,19 +47,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 - (IBAction)undo:(id)sender;
 - (IBAction)newGame:(id)sender;
 
+- (int)player;
 - (id)state;
 - (void)move:(id)move;
 - (void)gameOverAlert;
 - (void)aiMove;
-
-/* abstract methods */
 
 - (void)updateViews;
 - (void)autoMove;
 - (void)resetGame;
 
 - (void)clickAtRow:(int)r col:(int)c;
-
-- (NSArray *)buildState;
 
 @end
