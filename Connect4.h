@@ -53,14 +53,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 - (void)gameOverAlert;
 - (void)aiMove;
 
-/* abstract methods */
-
 - (void)updateViews;
 - (void)autoMove;
 - (void)resetGame;
 
 - (void)clickAtRow:(int)r col:(int)c;
-
-- (NSArray *)buildState;
 
 @end

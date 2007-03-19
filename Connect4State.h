@@ -32,8 +32,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 + (id)moveWithCol:(int)col;
 - (int)winner;
 
-/* for the View */
-- (int)pieceAtRow:(int)row col:(int)col;
-- (void)getRows:(int*)rows cols:(int*)cols;
+- (NSArray *)board;
 
 @end

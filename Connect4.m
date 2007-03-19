@@ -182,7 +182,7 @@ Sender is expected to be an NSSlider. */
     [aiButton setEnabled: [ab countMoves] ? NO : YES];
     [levelStepper setEnabled: [ab countMoves] ? NO : YES];
     
-    [board setState:[self buildState]];
+    [board setState:[[self state] board]];
     [board setNeedsDisplay:YES];
     [[board window] display];
 }
@@ -190,22 +190,6 @@ Sender is expected to be an NSSlider. */
 - (void)clickAtRow:(int)y col:(int)x
 {
     [self move:[Connect4State moveWithCol:x]];
-}
-
-- (NSArray *)buildState
-{
-    id st = [NSMutableArray array];
-    int rows, cols, r, c;
-    [[self state] getRows:&rows cols:&cols];
-    for (r = 0; r < rows; r++) {
-        id d = [NSMutableArray array];
-        for (c = 0; c < cols; c++) {
-            int p = [[self state] pieceAtRow:r col:c];
-            [d addObject:[NSNumber numberWithInt:p]];
-        }
-        [st addObject:d];
-    }
-    return st;
 }
 
 @end

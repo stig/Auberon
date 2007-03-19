@@ -169,7 +169,7 @@ static int calcScore(int me, int counts[3])
 - (double)currentFitness
 {
     int i, j, k;
-    float score = 0.0;
+    double score = 0.0;
 
     /* four-in-a-row vertically? */
     for (i = 0; i < ROWS; i++) {
@@ -224,15 +224,16 @@ static int calcScore(int me, int counts[3])
     return s;
 }
 
-- (int)pieceAtRow:(int)r col:(int)c
+- (NSArray *)board
 {
-    return board[r][c];
-}
-
-- (void)getRows:(int *)rows cols:(int *)cols
-{
-    *rows = ROWS;
-    *cols = COLS;
+    id r = [NSMutableArray array];
+    for (int i = 0; i < ROWS; i++) {
+        id c = [NSMutableArray array];
+        for (int j = 0; j < COLS; j++)
+            [c addObject:[NSNumber numberWithInt: board[i][j]]];
+        [r addObject:c];
+    }
+    return r;
 }
 
 - (int)player
