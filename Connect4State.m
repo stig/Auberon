@@ -108,15 +108,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     }
     
     if (board[0][col]) {
-        [NSException raise:@"illegal move" format:@"Space already occupied"];
+        [NSException raise:@"illegal move" format:@"Space already occupied: %@", m];
     }
-    
+
+    /* starting at i=1 looks like a bug at first glance (and 2nd, and 3rd, ...) 
+       but should be correct. We have already ascertained that i=0 is free, above.
+       Now we're just checking how far down we have to drop the disk. */
     int i;
-    for (i = 1; board[i][col] == 0 && i < ROWS; i++)
+    for (i = 1; i < ROWS && board[i][col] == 0; i++)
         ;
-    i--;
-    
-    board[i][col] = player;
+    board[i - 1][col] = player;
     player = 3 - player;
 }
 
@@ -234,11 +235,6 @@ static int calcScore(int me, int counts[3])
         [r addObject:c];
     }
     return r;
-}
-
-- (int)player
-{
-    return player;
 }
 
 @end
