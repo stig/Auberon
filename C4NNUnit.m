@@ -12,11 +12,13 @@
 @implementation C4NNUnit
 
 - (void)setUp {
+    perceptron = [SBPerceptron newWithLayers:@"42,100,1"];
     ab = [SBAlphaBeta newWithState:[[Connect4State new] autorelease]];
 }
 
 - (void)tearDown {
     [ab release];
+    [perceptron release];
 }
 
 - (void)testPerceptronPresent
@@ -29,16 +31,14 @@
     double fitness = [ab currentFitness];
     
     id state = [ab currentState];
-    id perceptron = [SBPerceptron perceptronWithLayers:@"42,100,1"];
     [state setPerceptron:perceptron];
-
+    
     double fitness2 = [ab currentFitness];    
     STAssertEqualsWithAccuracy( fitness2, 0.0, 0.5, nil );
-
     STAssertTrue( fitness != fitness2, @"Fitnesses the same: %f", fitness2 );
     
     [state setPerceptron:nil];
-    
+
     double fitness3 = [ab currentFitness];    
     STAssertEquals( fitness3, fitness, nil );
 }

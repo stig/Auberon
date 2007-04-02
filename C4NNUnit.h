@@ -12,6 +12,7 @@
 
 @interface C4NNUnit : SenTestCase {
     SBAlphaBeta *ab;
+    SBPerceptron *perceptron;
 }
 
 @end
