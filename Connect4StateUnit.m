@@ -113,7 +113,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 - (void)testWinner
 {
     [self testAvailableMoves];
-    STAssertEquals([s winner], (int)1, @"player 1 won");
+    STAssertEquals(s->player, (int)2, nil);
+    STAssertEquals([s endStateScore], (double)-1.0, @"player 1 won");
 }
 
 - (void)testApplyIllegalMove

@@ -25,12 +25,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define ROWS 6
 
 @interface Connect4State : NSObject <SBMutableAlphaBetaState> {
-    int player;
     unsigned board[ROWS][COLS];
+@public
+    int player;
 }
 
 + (id)moveWithCol:(int)col;
-- (int)winner;
 
 - (NSArray *)board;
 

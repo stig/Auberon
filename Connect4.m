@@ -40,7 +40,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 {
     NSAlert *alert = [[[NSAlert alloc] init] autorelease];
 
-    int winner = [[self state] winner];
+    int winner = [ab winner];
     NSString *msg = winner == ai ? @"You lost!" :
                     !winner      ? @"You managed a draw!" :
                                    @"You won!";
@@ -137,11 +137,6 @@ Sender is expected to be an NSSlider. */
     return [ab currentState];
 }
 
-- (int)player
-{
-    return [[self state] player];
-}
-
 - (void)dealloc
 {
     [ab release];
@@ -156,7 +151,7 @@ Sender is expected to be an NSSlider. */
     if ([ab isGameOver]) {
         [self gameOverAlert];
     }
-    if (ai == [self player]) {
+    if (ai == [ab playerTurn]) {
         [self aiMove];
         [self updateViews];
     }
@@ -178,7 +173,7 @@ Sender is expected to be an NSSlider. */
 
 - (void)updateViews
 {
-    [turn setStringValue: ai == [self player] ? @"Auberon is thinking..." : @"Your move"];
+    [turn setStringValue: ai == [ab playerTurn] ? @"Auberon is thinking..." : @"Your move"];
     [aiButton setEnabled: [ab countMoves] ? NO : YES];
     [levelStepper setEnabled: [ab countMoves] ? NO : YES];
     

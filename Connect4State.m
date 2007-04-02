@@ -51,12 +51,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     if (j == COLS)
         return YES;
 
-    if ([self winner])
+    if ([self endStateScore])
         return YES;
     return NO;
 }
 
-- (int)winner
+- (double)endStateScore
 {
     int i, j, k, t, t2;
     
@@ -67,7 +67,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
             for (k = 0; k < WINDOW; k++)
                 t &= board[i][j + k];
             if (t)
-                return t;
+                return player == t ? 1.0 : -1.0;
         }
     }
     
@@ -79,7 +79,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
             for (k = 0; k < WINDOW; k++)
                 t &= board[i + k][j];
             if (t)
-                return t;
+                return player == t ? 1.0 : -1.0;
         }
 
         /* how about diagonally? */
@@ -90,9 +90,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
                 t2 &= board[ROWS - 1 - i - k][j + k];
             }
             if (t)
-                return t;
+                return player == t ? 1.0 : -1.0;
             if (t2)
-                return t2;
+                return player == t2 ? 1.0 : -1.0;
         }
     }
     
