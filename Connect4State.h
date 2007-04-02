@@ -20,18 +20,21 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 #import <SBAlphaBeta/SBAlphaBeta.h>
+#import <SBPerceptron/SBPerceptron.h>
 
 #define COLS 7
 #define ROWS 6
 
 @interface Connect4State : NSObject <SBMutableAlphaBetaState> {
     unsigned board[ROWS][COLS];
+    SBPerceptron *perceptron;
 @public
     int player;
 }
 
 + (id)moveWithCol:(int)col;
 
+- (void)setPerceptron:(id)newPerceptron;
 - (NSArray *)board;
 
 @end

@@ -16,6 +16,10 @@
 		53E864AE0BC1992500580DBC /* SBAlphaBeta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E863710BC18DA800580DBC /* SBAlphaBeta.framework */; };
 		53E864B80BC1996800580DBC /* SBAlphaBeta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E863710BC18DA800580DBC /* SBAlphaBeta.framework */; };
 		53E864BD0BC1998A00580DBC /* SBAlphaBeta.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53E863710BC18DA800580DBC /* SBAlphaBeta.framework */; };
+		53E865290BC1B28C00580DBC /* SBPerceptron.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E865240BC1B28700580DBC /* SBPerceptron.framework */; };
+		53E8652C0BC1B2B600580DBC /* SBPerceptron.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53E865240BC1B28700580DBC /* SBPerceptron.framework */; };
+		53E865470BC1C21E00580DBC /* SBPerceptron.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E865240BC1B28700580DBC /* SBPerceptron.framework */; };
+		53E8654C0BC1C25D00580DBC /* C4NNUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E8654B0BC1C25D00580DBC /* C4NNUnit.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -62,8 +66,43 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 53E863690BC18DA800580DBC /* SBAlphaBeta.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* SBAlphaBeta */;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = SBAlphaBeta;
+		};
+		53E865230BC1B28700580DBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216 /* SBPerceptron.framework */;
+			remoteInfo = SBPerceptron;
+		};
+		53E865250BC1B28700580DBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53A780630B3417DF0011040B /* Tests.octest */;
+			remoteInfo = Tests;
+		};
+		53E865270BC1B28700580DBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53B5C0810B75D7610037413F /* xor */;
+			remoteInfo = xor;
+		};
+		53E8652A0BC1B2A000580DBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* SBPerceptron */;
+			remoteInfo = SBPerceptron;
+		};
+		53E865480BC1C23100580DBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* SBPerceptron */;
+			remoteInfo = SBPerceptron;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -74,6 +113,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				53E8652C0BC1B2B600580DBC /* SBPerceptron.framework in CopyFiles */,
 				53E864BD0BC1998A00580DBC /* SBAlphaBeta.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +141,9 @@
 		535025DE0B3AF0790012DAE7 /* Connect4StateUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connect4StateUnit.m; sourceTree = "<group>"; };
 		53727B3F0BAE162B00B7B9DA /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E863690BC18DA800580DBC /* SBAlphaBeta.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBAlphaBeta.xcodeproj; path = ../SBAlphaBeta/SBAlphaBeta.xcodeproj; sourceTree = SOURCE_ROOT; };
+		53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBPerceptron.xcodeproj; path = ../SBPerceptron/SBPerceptron.xcodeproj; sourceTree = SOURCE_ROOT; };
+		53E8654A0BC1C25D00580DBC /* C4NNUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C4NNUnit.h; sourceTree = "<group>"; };
+		53E8654B0BC1C25D00580DBC /* C4NNUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C4NNUnit.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Auberon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auberon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -111,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E864AE0BC1992500580DBC /* SBAlphaBeta.framework in Frameworks */,
+				53E865470BC1C21E00580DBC /* SBPerceptron.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +164,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				53E864B80BC1996800580DBC /* SBAlphaBeta.framework in Frameworks */,
+				53E865290BC1B28C00580DBC /* SBPerceptron.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +214,7 @@
 		29B97314FDCFA39411CA2CEA /* Auberon */ = {
 			isa = PBXGroup;
 			children = (
+				53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */,
 				53E863690BC18DA800580DBC /* SBAlphaBeta.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -186,6 +232,8 @@
 				535025DE0B3AF0790012DAE7 /* Connect4StateUnit.m */,
 				32CA4F630368D1EE00C91783 /* Auberon_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
+				53E8654A0BC1C25D00580DBC /* C4NNUnit.h */,
+				53E8654B0BC1C25D00580DBC /* C4NNUnit.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -222,6 +270,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		53E8651B0BC1B28700580DBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53E865240BC1B28700580DBC /* SBPerceptron.framework */,
+				53E865260BC1B28700580DBC /* Tests.octest */,
+				53E865280BC1B28700580DBC /* xor */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -238,6 +296,7 @@
 			);
 			dependencies = (
 				53E864B40BC1993C00580DBC /* PBXTargetDependency */,
+				53E865490BC1C23100580DBC /* PBXTargetDependency */,
 			);
 			name = Test;
 			productName = Test;
@@ -257,6 +316,7 @@
 			);
 			dependencies = (
 				53E863790BC18DB800580DBC /* PBXTargetDependency */,
+				53E8652B0BC1B2A000580DBC /* PBXTargetDependency */,
 			);
 			name = Auberon;
 			productInstallPath = "$(HOME)/Applications";
@@ -277,6 +337,10 @@
 				{
 					ProductGroup = 53E8636A0BC18DA800580DBC /* Products */;
 					ProjectRef = 53E863690BC18DA800580DBC /* SBAlphaBeta.xcodeproj */;
+				},
+				{
+					ProductGroup = 53E8651B0BC1B28700580DBC /* Products */;
+					ProjectRef = 53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */;
 				},
 			);
 			targets = (
@@ -313,6 +377,27 @@
 			fileType = wrapper.cfbundle;
 			path = Tests.octest;
 			remoteRef = 53E863760BC18DA800580DBC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53E865240BC1B28700580DBC /* SBPerceptron.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SBPerceptron.framework;
+			remoteRef = 53E865230BC1B28700580DBC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53E865260BC1B28700580DBC /* Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.octest;
+			remoteRef = 53E865250BC1B28700580DBC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53E865280BC1B28700580DBC /* xor */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = xor;
+			remoteRef = 53E865270BC1B28700580DBC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -360,6 +445,7 @@
 			files = (
 				53727B490BAE165000B7B9DA /* Connect4State.m in Sources */,
 				53727B4A0BAE165700B7B9DA /* Connect4StateUnit.m in Sources */,
+				53E8654C0BC1C25D00580DBC /* C4NNUnit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +472,16 @@
 			isa = PBXTargetDependency;
 			name = SBAlphaBeta;
 			targetProxy = 53E864B30BC1993C00580DBC /* PBXContainerItemProxy */;
+		};
+		53E8652B0BC1B2A000580DBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SBPerceptron;
+			targetProxy = 53E8652A0BC1B2A000580DBC /* PBXContainerItemProxy */;
+		};
+		53E865490BC1C23100580DBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SBPerceptron;
+			targetProxy = 53E865480BC1C23100580DBC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -35,6 +35,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 - (id)init
 {
     if (self = [super init]) {
+        perceptron = nil;
         player = 1;
     }
     return self;
@@ -167,10 +168,30 @@ static int calcScore(int me, int counts[3])
     return score;
 }
 
+- (double)nnFitness
+{
+    id input = [NSMutableArray new];
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            int in = board[i][j];
+            if (in == 2)
+                in = -1;
+            [input addObject:[NSNumber numberWithInt:in]];
+        }
+    }
+    id out = [perceptron activateWithInput:input];
+    [input release];
+    return [[out lastObject] doubleValue] - 0.5;
+}
+
 - (double)currentFitness
 {
     int i, j, k;
     double score = 0.0;
+    
+    if (perceptron) {
+        return [self nnFitness];
+    }
 
     /* four-in-a-row vertically? */
     for (i = 0; i < ROWS; i++) {
@@ -235,6 +256,14 @@ static int calcScore(int me, int counts[3])
         [r addObject:c];
     }
     return r;
+}
+
+- (void)setPerceptron:(id)newPerceptron
+{
+    if (perceptron != newPerceptron) {
+        [perceptron release];
+        perceptron = [newPerceptron retain];
+    }
 }
 
 @end
