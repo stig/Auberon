@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53188BAF0BC2CAD600E127B9 /* SBPerceptron.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E865240BC1B28700580DBC /* SBPerceptron.framework */; };
+		53188BB00BC2CADA00E127B9 /* SBAlphaBeta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E863710BC18DA800580DBC /* SBAlphaBeta.framework */; };
+		53188BB50BC2CB2200E127B9 /* c4ga.m in Sources */ = {isa = PBXBuildFile; fileRef = 53188BB40BC2CB2200E127B9 /* c4ga.m */; };
+		53188C350BC2DA7400E127B9 /* Connect4State.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256E0B3AEC820012DAE7 /* Connect4State.m */; };
 		5350254B0B3AEB780012DAE7 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535025470B3AEB780012DAE7 /* BoardView.m */; };
 		5350254C0B3AEB780012DAE7 /* Connect4.m in Sources */ = {isa = PBXBuildFile; fileRef = 535025490B3AEB780012DAE7 /* Connect4.m */; };
 		535025700B3AEC820012DAE7 /* Connect4State.m in Sources */ = {isa = PBXBuildFile; fileRef = 5350256E0B3AEC820012DAE7 /* Connect4State.m */; };
@@ -27,6 +31,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		53188BAB0BC2CAC200E127B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = SBPerceptron;
+		};
+		53188BAD0BC2CAC700E127B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53E863690BC18DA800580DBC /* SBAlphaBeta.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = SBAlphaBeta;
+		};
 		53E863700BC18DA800580DBC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 53E863690BC18DA800580DBC /* SBAlphaBeta.xcodeproj */;
@@ -73,35 +91,35 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216 /* SBPerceptron.framework */;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
 			remoteInfo = SBPerceptron;
 		};
 		53E865250BC1B28700580DBC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 53A780630B3417DF0011040B /* Tests.octest */;
+			remoteGlobalIDString = 53A780630B3417DF0011040B;
 			remoteInfo = Tests;
 		};
 		53E865270BC1B28700580DBC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 53B5C0810B75D7610037413F /* xor */;
+			remoteGlobalIDString = 53B5C0810B75D7610037413F;
 			remoteInfo = xor;
 		};
 		53E8652A0BC1B2A000580DBC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* SBPerceptron */;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = SBPerceptron;
 		};
 		53E865480BC1C23100580DBC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 53E8651A0BC1B28700580DBC /* SBPerceptron.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* SBPerceptron */;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = SBPerceptron;
 		};
 /* End PBXContainerItemProxy section */
@@ -129,6 +147,8 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* Auberon_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auberon_Prefix.pch; sourceTree = "<group>"; };
+		53188BA90BC2CAB900E127B9 /* c4ga */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = c4ga; sourceTree = BUILT_PRODUCTS_DIR; };
+		53188BB40BC2CB2200E127B9 /* c4ga.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = c4ga.m; sourceTree = SOURCE_ROOT; };
 		535025460B3AEB780012DAE7 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
 		535025470B3AEB780012DAE7 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
 		535025480B3AEB780012DAE7 /* Connect4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect4.h; sourceTree = "<group>"; };
@@ -149,6 +169,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		53188BA70BC2CAB900E127B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53188BAF0BC2CAD600E127B9 /* SBPerceptron.framework in Frameworks */,
+				53188BB00BC2CADA00E127B9 /* SBAlphaBeta.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		53727B3C0BAE162B00B7B9DA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,6 +236,7 @@
 			children = (
 				8D1107320486CEB800E47090 /* Auberon.app */,
 				53727B3F0BAE162B00B7B9DA /* Test.octest */,
+				53188BA90BC2CAB900E127B9 /* c4ga */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,6 +258,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				53188BB40BC2CB2200E127B9 /* c4ga.m */,
 				535025DD0B3AF0790012DAE7 /* Connect4StateUnit.h */,
 				535025DE0B3AF0790012DAE7 /* Connect4StateUnit.m */,
 				32CA4F630368D1EE00C91783 /* Auberon_Prefix.pch */,
@@ -283,6 +314,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		53188BA80BC2CAB900E127B9 /* c4ga */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53188BB10BC2CAFA00E127B9 /* Build configuration list for PBXNativeTarget "c4ga" */;
+			buildPhases = (
+				53188BA60BC2CAB900E127B9 /* Sources */,
+				53188BA70BC2CAB900E127B9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53188BAC0BC2CAC200E127B9 /* PBXTargetDependency */,
+				53188BAE0BC2CAC700E127B9 /* PBXTargetDependency */,
+			);
+			name = c4ga;
+			productName = c4ga;
+			productReference = 53188BA90BC2CAB900E127B9 /* c4ga */;
+			productType = "com.apple.product-type.tool";
+		};
 		53727B3E0BAE162B00B7B9DA /* Test */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53727B530BAE167000B7B9DA /* Build configuration list for PBXNativeTarget "Test" */;
@@ -346,6 +395,7 @@
 			targets = (
 				8D1107260486CEB800E47090 /* Auberon */,
 				53727B3E0BAE162B00B7B9DA /* Test */,
+				53188BA80BC2CAB900E127B9 /* c4ga */,
 			);
 		};
 /* End PBXProject section */
@@ -439,6 +489,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		53188BA60BC2CAB900E127B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53188BB50BC2CB2200E127B9 /* c4ga.m in Sources */,
+				53188C350BC2DA7400E127B9 /* Connect4State.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		53727B3B0BAE162B00B7B9DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -463,6 +522,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		53188BAC0BC2CAC200E127B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SBPerceptron;
+			targetProxy = 53188BAB0BC2CAC200E127B9 /* PBXContainerItemProxy */;
+		};
+		53188BAE0BC2CAC700E127B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SBAlphaBeta;
+			targetProxy = 53188BAD0BC2CAC700E127B9 /* PBXContainerItemProxy */;
+		};
 		53E863790BC18DB800580DBC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SBAlphaBeta;
@@ -505,6 +574,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		53188BB20BC2CAFA00E127B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = "$(HOME)/bin";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = c4ga;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		53188BB30BC2CAFA00E127B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = "$(HOME)/bin";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = c4ga;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		53727B540BAE167000B7B9DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -599,7 +714,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -614,7 +729,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -627,6 +742,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		53188BB10BC2CAFA00E127B9 /* Build configuration list for PBXNativeTarget "c4ga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53188BB20BC2CAFA00E127B9 /* Debug */,
+				53188BB30BC2CAFA00E127B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		53727B530BAE167000B7B9DA /* Build configuration list for PBXNativeTarget "Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
