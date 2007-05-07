@@ -5,7 +5,7 @@ body {  width: 40em;
         font-size: 0.8em;
         font-family: Verdana, Arial, sans-serif;
 }
-img {   float: left;
+img {   float: right;
         margin-right: 1.5em;
         margin-bottom: 1.5em;
         width: 18.75em; /* 18.75 * 2 + 1.5 = 40 */

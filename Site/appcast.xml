@@ -12,7 +12,7 @@
             <title>Auberon 0.3</title> 
             <description><![CDATA[
             <ul>
-                <li>Renamed to Auberon.</li>
+                <li>Renamed the game from Puck to Auberon.</li>
                 <li>Cleaned up the interface somewhat and put some of the 
                     existing clutter in a preferences pane.</li>
                 <li>Added a progress indicator for things that go on in the background.</li>
