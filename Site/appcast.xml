@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"> 
+
+    <channel> 
+        <title>Auberon Changelog</title> 
+        <link>http://code.brautaset/Auberon/appcast.xml</link> 
+        <description>Most recent changes with links to updates.</description> 
+        <language>en</language> 
+
+        <item> 
+            <title>Auberon 0.3</title> 
+            <description><![CDATA[
+            <ul>
+                <li>Renamed to Auberon.</li>
+                <li>Cleaned up the interface somewhat and put some of the 
+                    existing clutter in a preferences pane.</li>
+                <li>Added a progress indicator for things that go on in the background.</li>
+                <li>Added a "Check for updates" menu item to check if new 
+                    versions are available, using the wonderful <a
+                    href="http://sparkle.andymatuschak.org/">Sparkle</a>
+                    framework. You also have the option to automatically check
+                    for new versions on startup.</li>
+                </ul>
+            ]]></description>
+            <pubDate>Sat, May  5 2007 22:20:14 BST</pubDate>
+            <enclosure url='http://code.brautaset.org/files/Auberon_0.3.dmg' 
+                length='252653' type="application/octet-stream"/>
+        </item> 
+
+        <item> 
+            <title>Puck 0.2</title> 
+            <description><![CDATA[
+                <p>Puck, a Reversi game for Mac OS X.</p>
+            ]]></description> 
+            <pubDate>Sun, Apr  2 2006 16:56:00 BST</pubDate>
+            <enclosure url="http://code.brautaset.org/files/Puck_0.2.dmg"
+                 length="146245" type="application/octet-stream"/> 
+        </item> 
+
+    </channel> 
+</rss> 
+
