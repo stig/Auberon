@@ -14,11 +14,23 @@
             SUPERCLASS = NSObject; 
         }, 
         {CLASS = BoardView; LANGUAGE = ObjC; SUPERCLASS = NSMatrix; }, 
-        {CLASS = Connect4; LANGUAGE = ObjC; SUPERCLASS = ABController; }, 
+        {
+            ACTIONS = {newGame = id; undo = id; }; 
+            CLASS = Connect4; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {board = BoardView; progressIndicator = NSProgressIndicator; }; 
+            SUPERCLASS = NSObject; 
+        }, 
         {CLASS = Connect4Board; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
         {CLASS = Connect4Move; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {CLASS = Connect4State; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {checkForUpdates = id; }; 
+            CLASS = SUUpdater; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }
     ); 
     IBVersion = 1; 
 }

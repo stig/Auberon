@@ -26,6 +26,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 @implementation Connect4
 
++ (void)initialize
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
+        @"3",           @"ai_level",
+        nil]];
+}
+
+- (void)resetGame
+{
+    [ab release];
+    ab = [[SBAlphaBeta alloc] initWithState:
+        [[Connect4State alloc] init]];
+    level = [[NSUserDefaults standardUserDefaults] integerForKey:@"ai_level"];
+    ai = 2;
+    [self autoMove];
+}
+
 - (void)awakeFromNib
 {
     [[board window] makeKeyAndOrderFront:self];
@@ -34,6 +52,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     [self resetGame];
 }
 
+- (void)dealloc
+{
+    [ab release];
+    [super dealloc];
+}
+
+#pragma mark Alerts
 
 /** Displays an alert when "Game Over" is detected. */
 - (void)gameOverAlert
@@ -54,6 +79,21 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     }
 }
 
+/** Displays an alert when the "New Game" action is chosen. */
+- (void)newGameAlert
+{
+    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+    [alert setMessageText:@"Start a new game"];
+    [alert setInformativeText:@"Are you sure you want to terminate the current game and start a new one?"];
+    [alert addButtonWithTitle:@"Yes"];
+    [alert addButtonWithTitle:@"No"];
+    if ([alert runModal] == NSAlertFirstButtonReturn) {
+        [self resetGame];
+    }
+}
+
+#pragma mark IBActions
+
 /** Performs undo twice (once for AI, once for human) 
 and updates views in between. */
 - (IBAction)undo:(id)sender
@@ -64,58 +104,38 @@ and updates views in between. */
     [self autoMove];
 }
 
-/** Toggle whether the AI is WHITE or BLACK. */
-- (IBAction)changeAi:(id)sender
-{
-    ai = [aiButton state] == NSOnState ? WHITE : BLACK;
-    [self autoMove];
-}
-
-/** Change the level of the AI. 
-Sender is expected to be an NSSlider. */
-- (IBAction)changeLevel:(id)sender
-{
-    int val = [sender intValue];
-    [level setIntValue:val];
-    maxPly = val;
-    val *= 10;
-    maxTime = (NSTimeInterval)(val * val / 1000.0);
-}
-
-/** Displays an alert when the "New Game" action is chosen. */
-- (void)newGameAlert
-{
-	NSAlert *alert = [[[NSAlert alloc] init] autorelease];
-	[alert setMessageText:@"Start a new game"];
-	[alert setInformativeText:@"Are you sure you want to terminate the current game and start a new one?"];
-	[alert addButtonWithTitle:@"Yes"];
-	[alert addButtonWithTitle:@"No"];
-	if ([alert runModal] == NSAlertFirstButtonReturn) {
-		[self resetGame];
-	}
-}
-
 /** Initiate a new game. */
 - (IBAction)newGame:(id)sender
 {
     if ([ab countMoves]) {
-		[self newGameAlert];
-	}
-	else {
-		[self resetGame];
-	}
+        [self newGameAlert];
+    }
+    else {
+        [self resetGame];
+    }
 }
+
+#pragma mark Actions
 
 /** Make the AI perform a move. */
 - (void)aiMove
 {
-    if (maxPly < 4 ? [ab applyMoveFromSearchWithPly:maxPly] : [ab applyMoveFromSearchWithInterval:maxTime]) {
-        [self autoMove];
+    id st = nil;
+    if (level < 4) {
+        st = [ab applyMoveFromSearchWithPly:level];
+    } else {
+        int ply = level * 10.0;
+        NSTimeInterval interval = (NSTimeInterval)(ply * ply / 1000.0);
+        st = [ab applyMoveFromSearchWithInterval:interval];
     }
-    else {
+
+    if (st) {
+        [self autoMove];
+    } else {
         NSLog(@"AI cannot move");
     }
 }
+
 
 /** Perform the given move. */
 - (void)move:(id)m
@@ -137,12 +157,6 @@ Sender is expected to be an NSSlider. */
     return [ab currentState];
 }
 
-- (void)dealloc
-{
-    [ab release];
-    [super dealloc];
-}
-
 /** Figure out if the AI should move "by itself". */
 - (void)autoMove
 {
@@ -151,32 +165,17 @@ Sender is expected to be an NSSlider. */
     if ([ab isGameOver]) {
         [self gameOverAlert];
     }
+    
     if (ai == [ab playerTurn]) {
+        [progressIndicator startAnimation:self];
         [self aiMove];
+        [progressIndicator stopAnimation:self];
         [self updateViews];
     }
 }
 
-- (void)resetGame
-{
-    [ab release];
-    ab = [[SBAlphaBeta alloc] initWithState:
-        [[Connect4State alloc] init]];
-    
-    [aiButton setEnabled:YES];
-    [aiButton setState:NSOffState];
-    [self changeAi:aiButton];
-    [self changeLevel:levelStepper];
-    
-    [self autoMove];
-}
-
 - (void)updateViews
 {
-    [turn setStringValue: ai == [ab playerTurn] ? @"Auberon is thinking..." : @"Your move"];
-    [aiButton setEnabled: [ab countMoves] ? NO : YES];
-    [levelStepper setEnabled: [ab countMoves] ? NO : YES];
-    
     [board setBoard:[[self state] board]];
     [board setNeedsDisplay:YES];
     [[board window] display];

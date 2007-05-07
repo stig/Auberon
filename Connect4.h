@@ -29,20 +29,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 @interface Connect4 : NSObject
 {
-    int ai, maxPly;
-    NSTimeInterval maxTime;
+    int ai, level;
     SBAlphaBeta *ab;
     
     IBOutlet BoardView *board;
-    IBOutlet NSStepper *levelStepper;
-    IBOutlet NSButton *aiButton;
-    
-    IBOutlet NSTextField *level;
-    IBOutlet NSTextField *turn;
+    IBOutlet NSProgressIndicator *progressIndicator;
 }
 
-- (IBAction)changeAi:(id)sender;
-- (IBAction)changeLevel:(id)sender;
 - (IBAction)newGame:(id)sender;
 - (IBAction)undo:(id)sender;
 - (IBAction)newGame:(id)sender;
