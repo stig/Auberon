@@ -43,7 +43,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     id st = [[Connect4State new] autorelease];
     [ab release];
     ab = [[SBAlphaBeta alloc] initWithState:st];
-    
+
     [self autoMove];
 }
 
@@ -93,16 +93,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     if ([alert runModal] == NSAlertFirstButtonReturn) {
         [self resetGame];
     }
-}
-
-- (void)passAlert
-{
-    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
-    [alert setMessageText:@"No move possible"];
-    [alert setInformativeText:@"You cannot make a move and are forced to pass."];
-    [alert addButtonWithTitle:@"Ok"];
-    [alert runModal];
-    [self move:[NSNull null]];
 }
 
 #pragma mark IBActions
@@ -178,9 +168,6 @@ and updates views in between.
     
     if ([ab isGameOver]) {
         [self gameOverAlert];
-    }
-    else if ([ab currentPlayerMustPass]) {
-        [self passAlert];
     }
     
     if (ai == [ab playerTurn]) {
