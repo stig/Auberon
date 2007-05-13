@@ -36,11 +36,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 - (void)resetGame
 {
-    [ab release];
-    ab = [[SBAlphaBeta alloc] initWithState:
-        [[Connect4State alloc] init]];
-    level = [[NSUserDefaults standardUserDefaults] integerForKey:@"ai_level"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    level = [defaults integerForKey:@"ai_level"];
     ai = 2;
+
+    id st = [[[Connect4State alloc] init] autorelease];
+    [ab release];
+    ab = [[SBAlphaBeta alloc] initWithState:st];
+    
     [self autoMove];
 }
 
@@ -92,10 +95,22 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     }
 }
 
+- (void)passAlert
+{
+    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+    [alert setMessageText:@"No move possible"];
+    [alert setInformativeText:@"You cannot make a move and are forced to pass."];
+    [alert addButtonWithTitle:@"Ok"];
+    [alert runModal];
+    [self move:[NSNull null]];
+}
+
 #pragma mark IBActions
 
-/** Performs undo twice (once for AI, once for human) 
-and updates views in between. */
+/**
+Performs undo twice (once for AI, once for human) 
+and updates views in between.
+*/
 - (IBAction)undo:(id)sender
 {
     [ab undoLastMove];
@@ -136,7 +151,6 @@ and updates views in between. */
     }
 }
 
-
 /** Perform the given move. */
 - (void)move:(id)m
 {
@@ -164,6 +178,9 @@ and updates views in between. */
     
     if ([ab isGameOver]) {
         [self gameOverAlert];
+    }
+    else if ([ab currentPlayerMustPass]) {
+        [self passAlert];
     }
     
     if (ai == [ab playerTurn]) {
