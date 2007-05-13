@@ -40,7 +40,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     level = [defaults integerForKey:@"ai_level"];
     ai = 2;
 
-    id st = [[[Connect4State alloc] init] autorelease];
+    id st = [[Connect4State new] autorelease];
     [ab release];
     ab = [[SBAlphaBeta alloc] initWithState:st];
     
