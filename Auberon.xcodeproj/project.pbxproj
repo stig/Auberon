@@ -22,6 +22,8 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		E7B78DD90BFFAEF700FB2E1E /* BoardGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B78DD80BFFAEF200FB2E1E /* BoardGame.framework */; };
+		E7B78DDA0BFFAF1100FB2E1E /* BoardGame.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E7B78DD80BFFAEF200FB2E1E /* BoardGame.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,13 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = SBAlphaBeta;
 		};
+		E7B78DD70BFFAEF200FB2E1E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7B78DD00BFFAEF200FB2E1E /* BoardGame.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = BoardGame;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +85,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E7B78DDA0BFFAF1100FB2E1E /* BoardGame.framework in CopyFiles */,
 				53BD54150BEFB6AC0078F31B /* Sparkle.framework in CopyFiles */,
 				53E864BD0BC1998A00580DBC /* SBAlphaBeta.framework in CopyFiles */,
 			);
@@ -107,6 +117,7 @@
 		53E863690BC18DA800580DBC /* SBAlphaBeta.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBAlphaBeta.xcodeproj; path = ../SBAlphaBeta/SBAlphaBeta.xcodeproj; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Auberon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auberon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7B78DD00BFFAEF200FB2E1E /* BoardGame.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BoardGame.xcodeproj; path = ../BoardGame/BoardGame.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +136,7 @@
 				53BD54120BEFB6A10078F31B /* Sparkle.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				53E864B80BC1996800580DBC /* SBAlphaBeta.framework in Frameworks */,
+				E7B78DD90BFFAEF700FB2E1E /* BoardGame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +187,7 @@
 		29B97314FDCFA39411CA2CEA /* Auberon */ = {
 			isa = PBXGroup;
 			children = (
+				E7B78DD00BFFAEF200FB2E1E /* BoardGame.xcodeproj */,
 				53E863690BC18DA800580DBC /* SBAlphaBeta.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -224,6 +237,14 @@
 				53E863730BC18DA800580DBC /* SBReversi.framework */,
 				53E863750BC18DA800580DBC /* TTT.framework */,
 				53E863770BC18DA800580DBC /* Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E7B78DD10BFFAEF200FB2E1E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E7B78DD80BFFAEF200FB2E1E /* BoardGame.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -281,6 +302,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = E7B78DD10BFFAEF200FB2E1E /* Products */;
+					ProjectRef = E7B78DD00BFFAEF200FB2E1E /* BoardGame.xcodeproj */;
+				},
+				{
 					ProductGroup = 53E8636A0BC18DA800580DBC /* Products */;
 					ProjectRef = 53E863690BC18DA800580DBC /* SBAlphaBeta.xcodeproj */;
 				},
@@ -319,6 +344,13 @@
 			fileType = wrapper.cfbundle;
 			path = Tests.octest;
 			remoteRef = 53E863760BC18DA800580DBC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E7B78DD80BFFAEF200FB2E1E /* BoardGame.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BoardGame.framework;
+			remoteRef = E7B78DD70BFFAEF200FB2E1E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
