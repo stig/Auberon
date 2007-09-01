@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2006 Stig Brautaset. All rights reserved.
+Copyright (C) 2006,2007 Stig Brautaset. All rights reserved.
 
 This file is part of Auberon.
 
@@ -19,7 +19,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 */
 
-#import <SBAlphaBeta/SBAlphaBeta.h>
+#import <AlphaBeta/AlphaBeta.h>
 
 #define COLS 7
 #define ROWS 6
